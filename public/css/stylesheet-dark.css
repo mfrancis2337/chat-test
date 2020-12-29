@@ -1,0 +1,19 @@
+/* Created by M. Francis, 2020 */
+
+:root {
+	--bg-color: #444d56;
+	--text-color: #f0f6fc;
+	--informative: #959da5;
+	--header-color: #24292e;
+	--sidebar-color: #2f363d;
+
+	--color-0: var(--text-color);
+	--color-1: #79b8ff;
+	--color-2: #85e89d;
+	--color-3: #ffea7f;
+	--color-4: #ffab70;
+	--color-5: #f975a3;
+	--color-6: #b392f0;
+	--color-7: #f296ce;
+	--color-8: #d1d5da;
+}

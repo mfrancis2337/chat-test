@@ -1,0 +1,133 @@
+/* Created by M. Francis, 2020 */
+
+:root {
+	color-scheme: light dark; /* Tells the browser that light and dark mode is supported. A newer item */
+	--combined-header-footer: calc(40pt + 38px);
+}
+
+body {
+	margin: 0;
+	background-color: var(--bg-color);
+	overflow: hidden;
+}
+* {
+	box-sizing: border-box;
+	margin: 0;
+	font-family: "Open Sans", sans-serif;
+	font-weight: 300;
+	color: var(--text-color);
+	outline: none;
+}
+
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	padding: 12px 0;
+	font-size: 1.5rem;
+	background-color: var(--header-color);
+	width: 100vw;
+	text-align: center;
+	border-bottom: 1px solid var(--text-color);
+	white-space: nowrap;
+}
+header *:not(span) {
+	display: inline-block;
+	margin: 0;
+	padding: 0 1em;
+}
+
+main {
+	overflow-y: auto;
+	position: fixed;
+	top: calc(24pt + 25px);
+	left: 0;
+	width: 100vw;
+	height: calc(100vh - var(--combined-header-footer));
+	padding: 0 8px;
+}
+main p span:first-child {
+	font-weight: 600;
+}
+main p.join {
+	font-size: 0.75em;
+}
+
+form#sender {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100vw;
+	border-top: 1px solid var(--text-color);
+	height: calc(1rem + 17px);
+	background-color: var(--header-color);
+}
+textarea {
+	width: calc(100vw - 1rem - 16px);
+	height: calc(1rem + 16px);
+	padding: 8px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	border: 0;
+	background-color: transparent;
+	resize: none;
+}
+form#sender input[type=submit] {
+	position: fixed;
+	width: calc(1rem + 16px);
+	height: calc(1rem + 16px);
+	padding: 8px;
+	bottom: 0;
+	right: 0;
+	border: 0;
+	background-color: transparent;
+}
+
+.bluroverlay {
+	background-color: #959da57f;
+	-webkit-backdrop-filter: blur(5px);
+	backdrop-filter: blur(5px);
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+.menus {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+.menus div {
+	display: inline-block;
+}
+#newuser {
+	font-size: 1.5rem;
+	text-align: center;
+}
+#newuser form {
+	display: inline-block;
+	padding: 1em;
+}
+#newuser input {
+	border: 0;
+	font-size: 1.25rem;
+	background-color: var(--header-color);
+}
+
+
+
+@keyframes fadeOut {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}

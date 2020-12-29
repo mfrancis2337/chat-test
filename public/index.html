@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Node JS Chat</title>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+		<!-- Variables -->
+		<link rel="stylesheet" media="(prefers-color-scheme: light)" href="css/stylesheet-light.css">
+		<link rel="stylesheet" media="(prefers-color-scheme: dark)" href="css/stylesheet-dark.css">
+		<link rel="stylesheet" href="css/stylesheet-main.css">
+		<!-- Scripts -->
+		<script src="socket.io/socket.io.js"></script>
+		<script src="scripts/emojis.js"></script>
+		<script src="scripts/main.js"></script>
+	</head>
+	<body onoffline="offline();" ononline="online();">
+		<header>
+			<p><strong>Online Chatroom</strong></p>
+			<p><span id="users">1</span> user<span id="the-s"></span> online</p>
+		</header>
+		<main>
+			<p style="font-weight: 600;">Welcome to the chatroom!</p>
+		</main>
+		<form id="sender" onsubmit="chat(event);">
+			<textarea id="chatbox" onkeypress="if(event.keyCode == 13 && !event.shiftKey) chat(event);" minlength=1 maxlength=2048></textarea>
+			<input type="submit" value="&rarr;">
+		</form>
+		<div class="bluroverlay"></div>
+		<div class="menus">
+			<div id="newuser">
+				<p style="font-weight: 400;">Welcome! Choose a name.</p>
+				<form onsubmit="choosename(event);">
+					<input type="text" id="username" minlength=3 maxlength=32 style="float: left;">
+					<input type="submit" value="&rarr;" style="float: right;">
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
