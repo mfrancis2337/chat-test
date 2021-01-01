@@ -1,6 +1,6 @@
 {
 	"name": "chat-test",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "A test with Node JS to create an online chat application.",
 	"main": "app.js",
 	"scripts": {

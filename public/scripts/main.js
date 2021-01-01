@@ -86,7 +86,7 @@ socket.on("newuser", (data) => {
 	//Update user counter
 	totalUsers++;
 	document.getElementById("users").innerText = totalUsers;
-	document.getElementById("the-s").innerText = (totalUsers > 1) ? "" : "s";
+	document.getElementById("the-s").innerText = (totalUsers > 1) ? "s" : "";
 });
 
 //This is sent by the server when a user disconnects or leaves
@@ -99,7 +99,7 @@ socket.on("leaveuser", (data) => {
 	//Update user counter
 	totalUsers--;
 	document.getElementById("users").innerText = totalUsers;
-	document.getElementById("the-s").innerText = (totalUsers > 1) ? "" : "s";
+	document.getElementById("the-s").innerText = (totalUsers > 1) ? "s" : "";
 });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -119,21 +119,6 @@ function chat(e){
 	if(value.length < 1) return;
 	//Reset value
 	textarea.value = "";
-	//Search for links
-	let linkPattern = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/g;
-	let linkTester = new RegExp(linkPattern);
-	let links = [];
-	let match;
-	if(false && linkTester.test(value)){
-		//This doesn't work so I disabled it entirely
-
-		//Find all matches
-		//Code adapted from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll
-		//This is a replacement until the future, when matchAll is more widely accepted by browsers (because it is still fairly new)
-		while((match = linkTester.exec(value)) !== null){
-			links.push(match[0]);
-		}
-	}
 	//Search for command syntax
 	if(value.charAt(0) === "/"){
 		//Take apart command
@@ -142,7 +127,6 @@ function chat(e){
 		if(value.indexOf("/help") == 0) command = "help";
 		if(value.indexOf("/userid") == 0) command = "userid";
 		if(value.indexOf("/clear") == 0) command = "clear";
-		console.log(command);
 		//Command syntax
 		if(commandKeyWords.indexOf(command) !== -1){
 			switch(command){
@@ -218,13 +202,12 @@ function chat(e){
 		value = value.replace("\\/", "/");
 	}
 	//Find emojis
-	console.log(emojis.entries());
 	for(let [key, val] of emojis.entries()){
 		//At some point there may be a way to stop 
 		value = value.replaceAll(key, val);
 	}
 	//Send message
-	socket.emit("message", {user: username, message: value, color: selectedColor, links: links});
+	socket.emit("message", {user: username, message: value, color: selectedColor, links: []});
 	//Put message on screen
 	let chatItem = document.createElement("p");
 	let cUsername = document.createElement("span");
