@@ -24,7 +24,7 @@
 			<p style="font-weight: 600;">Welcome to the chatroom!</p>
 		</main>
 		<form id="sender" onsubmit="chat(event);">
-			<textarea id="chatbox" onkeypress="if(event.keyCode == 13 && !event.shiftKey) chat(event);" minlength=1 maxlength=2048></textarea>
+			<textarea id="chatbox" onkeypress="if(event.keyCode == 13 && !event.shiftKey) chat(event);" minlength=1 maxlength=2048 onfocus="event.stopPropagation();"></textarea>
 			<input type="submit" value="&rarr;">
 		</form>
 		<div class="bluroverlay"></div>
@@ -32,7 +32,7 @@
 			<div id="newuser">
 				<p style="font-weight: 400;">Welcome! Choose a name.</p>
 				<form onsubmit="choosename(event);">
-					<input type="text" id="username" minlength=3 maxlength=32 style="float: left;">
+					<input type="text" id="username" minlength=3 maxlength=32 style="float: left;" onfocus="event.stopPropagation();">
 					<input type="submit" value="&rarr;" style="float: right;">
 				</form>
 			</div>
